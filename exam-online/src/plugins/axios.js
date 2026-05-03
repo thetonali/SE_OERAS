@@ -6,6 +6,7 @@ import axios from "axios";
 let config = {
   // baseURL: process.env.baseURL || process.env.apiUrl || ""
   // timeout: 60 * 1000, // Timeout
+  //baseURL: "http://127.0.0.1:8000",
   // withCredentials: true, // Check cross-site Access-Control
 };
 
@@ -32,6 +33,15 @@ _axios.interceptors.request.use(
   function(config) {
     // Do something before request is sent
     // Add token to headers
+    // let token = localStorage.getItem('Authorization');
+    // if (token) {
+    //   // 检查 token 是否已经包含了 'JWT ' 前缀
+    //   // 如果没有包含，则手动帮它加上，以符合 Django 后端的严格要求
+    //   if (!token.startsWith('JWT ')) {
+    //       token = 'JWT ' + token;
+    //   }
+    //   config.headers.Authorization = token;
+    // }
     if (localStorage.getItem('Authorization')) {
       config.headers.Authorization = localStorage.getItem('Authorization');
     }

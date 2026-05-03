@@ -1,3 +1,4 @@
+# ExamOnline/ExamOnline/settings.py
 """
 Django settings for ExamOnline project.
 
@@ -24,7 +25,7 @@ SECRET_KEY = '%!t78vti6g=ejpbev3$45qjh)2)##eer9c=q#*71*+k0ynul!j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # 解决拓展内置auth_user表出现的认证问题
 # AUTH_USER_MODEL = 'user.Student'
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',  # 新增：跨域处理库
     'xadmin',
     'crispy_forms',
     'rest_framework',
@@ -54,6 +56,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # 新增：必须放在 CommonMiddleware 之上
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -129,6 +132,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+# 媒体文件配置 (新增部分，用于存储准考证PDF)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # restframework配置
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -150,3 +157,6 @@ JWT_AUTH = {
     # 自定义方法返回用户信息
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'user.views.jwt_response_payload_handler'
 }
+
+# 跨域相关配置 (新增)
+CORS_ORIGIN_ALLOW_ALL = True  # 允许所有源进行跨域请求（开发环境适用）

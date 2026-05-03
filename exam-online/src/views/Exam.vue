@@ -118,6 +118,10 @@
 				// 	path: '/answer',
 				// 	query: {}
 				// })
+				const examId = this.pagination.results[index].id;
+				this.$axios.post(`/api/registrations/?format=json`, {
+					exam: examId
+				})
 				this.$router.push({
 					path: '/Pay',
 					query: {}

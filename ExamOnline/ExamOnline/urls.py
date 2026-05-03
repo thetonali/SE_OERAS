@@ -15,6 +15,8 @@ Including another URLconf
 """
 import xadmin
 from django.urls import path, include, re_path
+from django.conf import settings
+from django.conf.urls.static import static
 from rest_framework.documentation import include_docs_urls
 from rest_framework.routers import DefaultRouter
 from rest_framework_jwt.views import obtain_jwt_token
@@ -24,6 +26,7 @@ from question.views import ChoiceListViewSet, FillListViewSet, JudgeListViewSet,
 from record.views import ChoiceRecordListViewSet, FillRecordListViewSet, JudgeRecordListViewSet, \
     SubjectiveRecordListViewSet
 from user.views import RegisterViewSet, StudentViewSet, UpdatePwdApi, ClazzListViewSet
+from registrations.views import RegistrationViewSet, AdmissionTicketViewSet
 
 router = DefaultRouter()
 
@@ -42,6 +45,8 @@ router.register(r'records/choices', ChoiceRecordListViewSet)
 router.register(r'records/fills', FillRecordListViewSet)
 router.register(r'records/judges', JudgeRecordListViewSet)
 router.register(r'records/subjective', SubjectiveRecordListViewSet)
+router.register(r'registrations', RegistrationViewSet)
+router.register(r'tickets', AdmissionTicketViewSet)
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
@@ -52,3 +57,7 @@ urlpatterns = [
     path('update-pwd/', UpdatePwdApi.as_view()),
     re_path('^', include(router.urls))
 ]
+
+# 添加媒体文件访问路由
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
