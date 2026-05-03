@@ -1,101 +1,192 @@
-import subprocess
-
 from rest_framework import mixins, viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from exam.models import SubjectiveAnswer
 from question.models import Choice, Fill, Judge, Subjective
-from question.serializers import ChoiceSerializer, FillSerializer, JudgeSerializer, SubjectiveSerializer
+from question.serializers import (
+    ChoiceSerializer,
+    FillSerializer,
+    JudgeSerializer,
+    SubjectiveSerializer
+)
 
 
-# Create your views here.
+# =========================
+# 工具函数（防空 & 统一处理）
+# =========================
+def safe_level(level):
+    return str(level) if level is not None else "1"
 
 
+def filter_by_subject(queryset, subject):
+    """
+    模糊匹配 subject，避免“空格/中文差异导致查不到”
+    """
+    if subject:
+        return queryset.filter(subject__icontains=subject)
+    return queryset
+
+
+# =========================
+# 选择题
+# =========================
 class ChoiceListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
-    """选择题列表页"""
-    # 这里要定义一个默认的排序，否则会报错
-    queryset = Choice.objects.all().order_by('id')[:0]
-    # 序列化
+    queryset = Choice.objects.none()
     serializer_class = ChoiceSerializer
 
-    # 重写queryset
     def get_queryset(self):
-        # 题目数量
-        choice_number = int(self.request.query_params.get("choice_number"))
-        level = int(self.request.query_params.get("level", 1))
+        choice_number = int(self.request.query_params.get("choice_number") or 0)
+        level = safe_level(self.request.query_params.get("level"))
+        subject = self.request.query_params.get("subject")
 
-        if choice_number:
-            self.queryset = Choice.objects.all().filter(level=level).order_by('?')[:choice_number]
-        return self.queryset
+        if not choice_number:
+            return Choice.objects.none()
+
+        qs = Choice.objects.filter(level=level)
+        qs = filter_by_subject(qs, subject)
+
+        return qs.order_by('?')[:choice_number]
 
 
+# =========================
+# 填空题
+# =========================
 class FillListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
-    """填空题列表页"""
-    # 这里要定义一个默认的排序，否则会报错
-    queryset = Fill.objects.all().order_by('id')[:0]
-    # 序列化
+    queryset = Fill.objects.none()
     serializer_class = FillSerializer
 
-    # 重写queryset
     def get_queryset(self):
-        # 题目数量
-        fill_number = int(self.request.query_params.get("fill_number"))
-        level = int(self.request.query_params.get("level", 1))
+        fill_number = int(self.request.query_params.get("fill_number") or 0)
+        level = safe_level(self.request.query_params.get("level"))
+        subject = self.request.query_params.get("subject")
 
-        if fill_number:
-            self.queryset = Fill.objects.all().filter(level=level).order_by('?')[:fill_number]
-        return self.queryset
+        if not fill_number:
+            return Fill.objects.none()
+
+        qs = Fill.objects.filter(level=level)
+        qs = filter_by_subject(qs, subject)
+
+        return qs.order_by('?')[:fill_number]
 
 
+# =========================
+# 判断题
+# =========================
 class JudgeListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
-    """判断题列表页"""
-    # 这里要定义一个默认的排序，否则会报错
-    queryset = Judge.objects.all().order_by('?')[:0]
-    # 序列化
+    queryset = Judge.objects.none()
     serializer_class = JudgeSerializer
 
-    # 重写queryset
     def get_queryset(self):
-        # 题目数量
-        judge_number = int(self.request.query_params.get("judge_number"))
-        level = int(self.request.query_params.get("level", 1))
+        judge_number = int(self.request.query_params.get("judge_number") or 0)
+        level = safe_level(self.request.query_params.get("level"))
+        subject = self.request.query_params.get("subject")
 
-        if judge_number:
-            self.queryset = Judge.objects.all().filter(level=level).order_by('?')[:judge_number]
-        return self.queryset
+        if not judge_number:
+            return Judge.objects.none()
+
+        qs = Judge.objects.filter(level=level)
+        qs = filter_by_subject(qs, subject)
+
+        return qs.order_by('?')[:judge_number]
 
 
+# =========================
+# 主观题
+# =========================
 class SubjectiveListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
-    """主观题列表页"""
-    # 这里定义一个默认的排序，否则会报错
-    queryset = Subjective.objects.all().order_by('?')[:0]
-    # 序列化
+    queryset = Subjective.objects.none()
     serializer_class = SubjectiveSerializer
 
-    # 重写queryset
     def get_queryset(self):
-        # 题目数量
-        subjective_number = int(self.request.query_params.get("subjective_number"))
-        level = int(self.request.query_params.get("level", 1))
+        subjective_number = int(self.request.query_params.get("subjective_number") or 0)
+        level = safe_level(self.request.query_params.get("level"))
+        subject = self.request.query_params.get("subject")
 
-        if subjective_number:
-            self.queryset = Subjective.objects.all().filter(level=level).order_by('?')[:subjective_number]
-        return self.queryset
+        if not subjective_number:
+            return Subjective.objects.none()
+
+        qs = Subjective.objects.filter(level=level)
+        qs = filter_by_subject(qs, subject)
+
+        return qs.order_by('?')[:subjective_number]
 
 
+# =========================
+# 上传主观题答案
+# =========================
 class UploadSubjective(APIView):
-    """上传主观题答案"""
 
     def post(self, request):
-        # 获取post提交的字典数据
-        json_body = request.data
-        # 获取题目信息
-        exam_id = json_body.get("exam_id")
-        student_id = json_body.get("student_id")
-        question_id = json_body.get("question_id")
-        answer = json_body.get("answer")
-        identifier = json_body.get("identifier")
-        # 把id和answer存入数据库Subjective
-        SubjectiveAnswer.objects.create(student_id=student_id, question_id=question_id, answer=answer, exam_id=exam_id,identifier=identifier)
+        data = request.data
+
+        SubjectiveAnswer.objects.create(
+            student_id=data.get("student_id"),
+            question_id=data.get("question_id"),
+            answer=data.get("answer"),
+            exam_id=data.get("exam_id"),
+            identifier=data.get("identifier"),
+        )
+
         return Response({"message": "success"})
+
+
+# =========================
+# ⭐ 核心：统一组卷接口（最终稳定版）
+# =========================
+class GeneratePaperAPIView(APIView):
+
+    def get(self, request):
+       paper_id = request.query_params.get("paper_id")
+       
+       if not paper_id:
+           return Response({"error": "paper_id不能为空"}, status=400)
+       
+       # 从数据库读取试卷配置
+       try:
+           from exam.models import Paper
+           paper = Paper.objects.get(id=paper_id)
+       except Paper.DoesNotExist:
+            return Response({"error": "试卷不存在"}, status=404)
+
+       subject = paper.subject
+       level = str(paper.level)
+
+       if not subject:
+           return Response({"error": "试卷未配置科目"}, status=400)
+
+        # 先检查是否有数据（防空卷）
+       if not Choice.objects.filter(subject__icontains=subject, level=level).exists():
+            return Response({
+                "error": "题库中没有匹配数据",
+                "subject": subject,
+                "level": level
+            }, status=400)
+            
+       result = {
+            "choice": ChoiceSerializer(
+                filter_by_subject(Choice.objects.filter(level=level), subject)
+                .order_by('?')[:paper.choice_number],
+                many=True
+            ).data,
+
+            "fill": FillSerializer(
+                filter_by_subject(Fill.objects.filter(level=level), subject)
+                .order_by('?')[:paper.fill_number],
+                many=True
+            ).data,
+
+            "judge": JudgeSerializer(
+                filter_by_subject(Judge.objects.filter(level=level), subject)
+                .order_by('?')[:paper.judge_number],
+                many=True
+            ).data,
+
+            "subjective": SubjectiveSerializer(
+                filter_by_subject(Subjective.objects.filter(level=level), subject)
+                .order_by('?')[:paper.subjective_number],
+                many=True
+            ).data,
+        }
+       
+       return Response(result)

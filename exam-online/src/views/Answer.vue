@@ -32,7 +32,7 @@
 						</el-col>
 
 					</el-row>
-					<el-divider content-position="center">作文题</el-divider>
+					<el-divider content-position="center">主观题</el-divider>
 					<el-row class="question-tag">
 						<el-col :span="24">
 							<el-tag v-for="(item, index) in subjective" :key="item.id" :type="index + subjectivePos == current ? 'success' : ''"
@@ -214,7 +214,8 @@
 				this.$axios(`/api/choices/?format=json`, {
 					params: {
 						choice_number: this.getPaper.choice_number,
-						level: this.getPaper.level
+						level: this.getPaper.level,
+						subject: this.getPaper.subject
 					}
 				}).then(res => {
 					this.choices = res.data
@@ -228,7 +229,8 @@
 				this.$axios('/api/fills/?format=json', {
 					params: {
 						fill_number: this.getPaper.fill_number,
-						level: this.getPaper.level
+						level: this.getPaper.level,
+						subject: this.getPaper.subject
 					}
 				}).then(res => {
 					this.fills = res.data
@@ -242,7 +244,8 @@
 				this.$axios(`/api/judges/?format=json`, {
 					params: {
 						judge_number: this.getPaper.judge_number,
-						level: this.getPaper.level
+						level: this.getPaper.level,
+						subject: this.getPaper.subject
 					}
 				}).then(res => {
 					this.judges = res.data
@@ -256,7 +259,8 @@
 				this.$axios(`/api/subjective/?format=json`, {
 					params: {
 						subjective_number: this.getPaper.subjective_number,
-						level: this.getPaper.level
+						level: this.getPaper.level,
+						subject: this.getPaper.subject
 					}
 				}).then(res => {
 					this.subjective = res.data

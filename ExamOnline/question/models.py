@@ -1,22 +1,16 @@
 from django.db import models
 
 
-# Create your models here.
 class Choice(models.Model):
     """选择题模型"""
     LEVEL_CHOICES = (
-        ('1', '入门'),
-        ('2', '简单'),
-        ('3', '普通'),
-        ('4', '较难'),
-        ('5', '困难')
+        ('1', '入门'), ('2', '简单'), ('3', '普通'), ('4', '较难'), ('5', '困难')
     )
     ANSWER_CHOICES = (
-        ('A', 'A'),
-        ('B', 'B'),
-        ('C', 'C'),
-        ('D', 'D')
+        ('A', 'A'), ('B', 'B'), ('C', 'C'), ('D', 'D')
     )
+    # ===== 新增：科目字段 =====
+    subject = models.CharField("所属科目", max_length=50, default="通用", help_text="例如：计算机网络、数据结构、数学")
     question = models.TextField("题目", default="")
     answer_A = models.CharField("A选项", max_length=200, default="")
     answer_B = models.CharField("B选项", max_length=200, default="")
@@ -37,14 +31,12 @@ class Choice(models.Model):
 
 
 class Fill(models.Model):
-    """判断题模型"""
+    """填空题模型"""
     LEVEL_CHOICES = (
-        ('1', '入门'),
-        ('2', '简单'),
-        ('3', '普通'),
-        ('4', '较难'),
-        ('5', '困难')
+        ('1', '入门'), ('2', '简单'), ('3', '普通'), ('4', '较难'), ('5', '困难')
     )
+    # ===== 新增：科目字段 =====
+    subject = models.CharField("所属科目", max_length=50, default="通用")
     question = models.TextField("题目", default="")
     right_answer = models.CharField("正确答案", max_length=200, default="")
     analysis = models.TextField("题目解析", default="暂无")
@@ -63,16 +55,13 @@ class Fill(models.Model):
 class Judge(models.Model):
     """判断题模型"""
     LEVEL_CHOICES = (
-        ('1', '入门'),
-        ('2', '简单'),
-        ('3', '普通'),
-        ('4', '较难'),
-        ('5', '困难')
+        ('1', '入门'), ('2', '简单'), ('3', '普通'), ('4', '较难'), ('5', '困难')
     )
     ANSWER_CHOICES = (
-        ('T', '正确'),
-        ('F', '错误')
+        ('T', '正确'), ('F', '错误')
     )
+    # ===== 新增：科目字段 =====
+    subject = models.CharField("所属科目", max_length=50, default="通用")
     question = models.TextField("题目", default="")
     right_answer = models.CharField("正确答案", max_length=1, choices=ANSWER_CHOICES, default="T")
     analysis = models.TextField("题目解析", default="暂无")
@@ -91,12 +80,10 @@ class Judge(models.Model):
 class Subjective(models.Model):
     """主观题模型"""
     LEVEL_CHOICES = (
-        ('1', '入门'),
-        ('2', '简单'),
-        ('3', '普通'),
-        ('4', '较难'),
-        ('5', '困难')
+        ('1', '入门'), ('2', '简单'), ('3', '普通'), ('4', '较难'), ('5', '困难')
     )
+    # ===== 新增：科目字段 =====
+    subject = models.CharField("所属科目", max_length=50, default="通用")
     question = models.TextField("题目", max_length=200, default="")
     answer_template = models.TextField("答题模板", default="")
     analysis = models.TextField("题目解析", default="")

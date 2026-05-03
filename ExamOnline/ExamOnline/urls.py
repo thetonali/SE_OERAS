@@ -24,6 +24,7 @@ from question.views import ChoiceListViewSet, FillListViewSet, JudgeListViewSet,
 from record.views import ChoiceRecordListViewSet, FillRecordListViewSet, JudgeRecordListViewSet, \
     SubjectiveRecordListViewSet
 from user.views import RegisterViewSet, StudentViewSet, UpdatePwdApi, ClazzListViewSet
+from question.views import GeneratePaperAPIView
 
 router = DefaultRouter()
 
@@ -45,6 +46,7 @@ router.register(r'records/subjective', SubjectiveRecordListViewSet)
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
+    path('api/paper/generate/', GeneratePaperAPIView.as_view()),
     path('docs/', include_docs_urls('Python在线考试系统')),
     path('api-auth/', include('rest_framework.urls')),
     path('jwt-auth/', obtain_jwt_token),
