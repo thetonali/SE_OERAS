@@ -15,7 +15,6 @@ class CustomBackend(ModelBackend):
     """
     自定义用户验证
     """
-
     def authenticate(self, username=None, password=None, **kwargs):
         try:
             user = User.objects.get(Q(username=username))# | Q(mobile=username))

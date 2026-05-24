@@ -12,7 +12,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/HelloWorld.vue
+SF:src\components\HelloWorld.vue
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
@@ -26,7 +26,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/Pagination.vue
+SF:src\components\Pagination.vue
 FN:1,(anonymous_3)
 FNF:1
 FNH:1
@@ -40,7 +40,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/SlideVerification.vue
+SF:src\components\SlideVerification.vue
 FN:1,(anonymous_7)
 FNF:1
 FNH:1
@@ -54,7 +54,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/TimeCountDown.vue
+SF:src\components\TimeCountDown.vue
 FN:1,(anonymous_7)
 FNF:1
 FNH:1
@@ -68,7 +68,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/layout/index.vue
+SF:src\layout\index.vue
 FN:1,(anonymous_7)
 FNF:1
 FNH:0
@@ -82,7 +82,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/router/index.js
+SF:src\router\index.js
 FN:13,(anonymous_0)
 FN:22,(anonymous_1)
 FN:30,(anonymous_2)
@@ -157,7 +157,7 @@ BRF:10
 BRH:0
 end_of_record
 TN:
-SF:src/store/index.js
+SF:src\store\index.js
 FN:14,(anonymous_0)
 FN:18,(anonymous_1)
 FN:22,(anonymous_2)
@@ -191,7 +191,7 @@ BRF:8
 BRH:4
 end_of_record
 TN:
-SF:src/views/Answer.vue
+SF:src\views\Answer.vue
 FN:1,(anonymous_53)
 FNF:1
 FNH:1
@@ -212,7 +212,7 @@ BRF:2
 BRH:1
 end_of_record
 TN:
-SF:src/views/Center.vue
+SF:src\views\Center.vue
 FN:1,(anonymous_10)
 FNF:1
 FNH:1
@@ -235,7 +235,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/views/Exam.vue
+SF:src\views\Exam.vue
 FN:1,(anonymous_10)
 FNF:1
 FNH:1
@@ -258,7 +258,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src/views/Grade.vue
+SF:src\views\Grade.vue
 FN:1,(anonymous_8)
 FNF:1
 FNH:1
@@ -281,7 +281,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src/views/Login.vue
+SF:src\views\Login.vue
 FN:1,(anonymous_6)
 FNF:1
 FNH:1
@@ -303,7 +303,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/views/Mistakes.vue
+SF:src\views\Mistakes.vue
 FN:1,(anonymous_1)
 FNF:1
 FNH:1
@@ -317,7 +317,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/views/Password.vue
+SF:src\views\Password.vue
 FN:1,(anonymous_10)
 FNF:1
 FNH:1
@@ -338,7 +338,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/views/Payment.vue
+SF:src\views\Payment.vue
 FN:2,(anonymous_4)
 FNF:1
 FNH:1
@@ -354,7 +354,7 @@ BRF:1
 BRH:0
 end_of_record
 TN:
-SF:src/views/Practice.vue
+SF:src\views\Practice.vue
 FN:1,(anonymous_10)
 FNF:1
 FNH:1
@@ -378,7 +378,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/views/Record.vue
+SF:src\views\Record.vue
 FN:1,(anonymous_14)
 FNF:1
 FNH:1
@@ -399,7 +399,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src/views/Register.vue
+SF:src\views\Register.vue
 FN:1,(anonymous_8)
 FNF:1
 FNH:1

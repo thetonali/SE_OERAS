@@ -24,7 +24,7 @@ class CustomBackendTest(TestCase):
         number_of_users = 13
         for user_num in range(number_of_users):
             User.objects.create(username='user%s' % user_num, password = '654321%s' % user_num,)
-        Clazz.objects.create(year='2020', major='计算机', clazz='1')
+        Clazz.objects.create(year='2023', major='计算机', clazz='1')
         Student.objects.create(name='syq', user=User.objects.get(id=1), gender='f', clazz=Clazz.objects.get(id=1))
     
     def test_authenticate(self):
@@ -67,7 +67,7 @@ class RegisterViewSetTest(TestCase):
         number_of_users = 13
         for user_num in range(number_of_users):
             User.objects.create(username='user%s' % user_num, password = '654321%s' % user_num,)
-        Clazz.objects.create(year='2020', major='计算机', clazz='1')
+        Clazz.objects.create(year='2023', major='计算机', clazz='1')
         Student.objects.create(name='syq', user=User.objects.get(id=1), gender='f', clazz=Clazz.objects.get(id=1))
     
     def test_create_user_fail(self):
@@ -99,7 +99,7 @@ class UpdatePwdApiTest(TestCase):
         number_of_users = 13
         for user_num in range(number_of_users):
             User.objects.create(username='user%s' % user_num, password = '654321%s' % user_num,)
-        Clazz.objects.create(year='2020', major='计算机', clazz='1')
+        Clazz.objects.create(year='2023', major='计算机', clazz='1')
         Student.objects.create(name='syq', user=User.objects.get(id=1), gender='f', clazz=Clazz.objects.get(id=1))
     
     def test_update_pwd_fail(self):
@@ -129,7 +129,7 @@ class StudentViewSetTest(TestCase):
         number_of_users = 13
         for user_num in range(number_of_users):
             User.objects.create(username='user%s' % user_num, password = '654321%s' % user_num,)
-        Clazz.objects.create(year='2020', major='计算机', clazz='1')
+        Clazz.objects.create(year='2023', major='计算机', clazz='1')
         for user_num in range(number_of_users):
             Student.objects.create(name='syq', user=User.objects.get(id=user_num+1), gender='f', clazz=Clazz.objects.get(id=1))
     
@@ -153,7 +153,7 @@ class ClazzListViewSetTest(TestCase):
         number_of_users = 13
         for user_num in range(number_of_users):
             User.objects.create(username='user%s' % user_num, password = '654321%s' % user_num,)
-            Clazz.objects.create(year='2020', major='计算机', clazz='1%s' % user_num,)
+            Clazz.objects.create(year='2023', major='计算机', clazz='1%s' % user_num,)
         
     
     def test_view_url_exists(self):

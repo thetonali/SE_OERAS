@@ -15,7 +15,7 @@ class ChoiceAdminTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         #Set up non-modified objects used by all test methods
-        Clazz.objects.create(year='2020', major='计算机', clazz='1')
+        Clazz.objects.create(year='2023', major='计算机', clazz='1')
 
     def test_admin(self):
         admin = ChoiceAdmin()
@@ -35,7 +35,7 @@ class FillAdminTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         #Set up non-modified objects used by all test methods
-        Clazz.objects.create(year='2020', major='计算机', clazz='1')
+        Clazz.objects.create(year='2023', major='计算机', clazz='1')
 
     def test_admin(self):
         admin = FillAdmin()
@@ -54,7 +54,7 @@ class SubjectiveAdminTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         #Set up non-modified objects used by all test methods
-        Clazz.objects.create(year='2020', major='计算机', clazz='1')
+        Clazz.objects.create(year='2023', major='计算机', clazz='1')
 
     def test_admin(self):
         admin = SubjectiveAdmin()

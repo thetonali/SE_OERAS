@@ -48,7 +48,7 @@ class UploadSubjectiveTest(TestCase):
         number_of_users = 13
         for user_num in range(number_of_users):
             User.objects.create(username='user%s' % user_num, password = '654321%s' % user_num,)
-        Clazz.objects.create(year='2020', major='计算机', clazz='1')
+        Clazz.objects.create(year='2023', major='计算机', clazz='1')
         Student.objects.create(name='syq', user=User.objects.get(id=1), gender='f', clazz=Clazz.objects.get(id=1))
         Subjective.objects.create(question='问题1', answer_template='1234567答题的模板', level='2')
         Paper.objects.create(name='试卷1', score=120)

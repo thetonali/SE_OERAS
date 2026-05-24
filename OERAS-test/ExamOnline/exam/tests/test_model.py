@@ -142,7 +142,7 @@ class SubjectiveAnswerModelTest(TestCase):
         number_of_users = 13
         for user_num in range(number_of_users):
             User.objects.create(username='user%s' % user_num, password = '654321%s' % user_num,)
-        Clazz.objects.create(year='2020', major='计算机', clazz='1')
+        Clazz.objects.create(year='2023', major='计算机', clazz='1')
         Student.objects.create(name='syq', user=User.objects.get(id=1), gender='f', clazz=Clazz.objects.get(id=1))
         Paper.objects.create(name='试卷1', score=120)
         temp = Exam.objects.create(name='测试1', exam_date='2023-1-1', major='计算机', paper=Paper.objects.get(id=1))

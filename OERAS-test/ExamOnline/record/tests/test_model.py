@@ -14,7 +14,7 @@ class ChoiceRecordModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         #Set up non-modified objects used by all test methods
-        Clazz.objects.create(year='2020', major='计算机', clazz='1')
+        Clazz.objects.create(year='2023', major='计算机', clazz='1')
         User.objects.create(username='user0', password = '6543210')
         Student.objects.create(name='张三', user=User.objects.get(id=1), gender='m', clazz=Clazz.objects.get(id=1))
         Practice.objects.create(name='练习1', student=Student.objects.get(id=1), create_time=2023/1/1)
@@ -52,7 +52,7 @@ class FillRecordModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         #Set up non-modified objects used by all test methods
-        Clazz.objects.create(year='2020', major='计算机', clazz='1')
+        Clazz.objects.create(year='2023', major='计算机', clazz='1')
         User.objects.create(username='user0', password = '6543210')
         Student.objects.create(name='张三', user=User.objects.get(id=1), gender='m', clazz=Clazz.objects.get(id=1))
         Practice.objects.create(name='练习1', student=Student.objects.get(id=1), create_time=2023/1/1)
@@ -90,7 +90,7 @@ class SubjectiveRecordModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         #Set up non-modified objects used by all test methods
-        Clazz.objects.create(year='2020', major='计算机', clazz='1')
+        Clazz.objects.create(year='2023', major='计算机', clazz='1')
         User.objects.create(username='user0', password = '6543210')
         Student.objects.create(name='张三', user=User.objects.get(id=1), gender='m', clazz=Clazz.objects.get(id=1))
         Practice.objects.create(name='练习1', student=Student.objects.get(id=1), create_time=2023/1/1)

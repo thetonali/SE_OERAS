@@ -11,7 +11,7 @@ class ClazzModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         #Set up non-modified objects used by all test methods
-        Clazz.objects.create(year='2020', major='计算机', clazz='1')
+        Clazz.objects.create(year='2023', major='计算机', clazz='1')
 
     def test_year_label(self):
         clazz_temp=Clazz.objects.get(id=1)
@@ -56,7 +56,7 @@ class StudentModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         #Set up non-modified objects used by all test methods
-        Clazz.objects.create(year='2020', major='计算机', clazz='1')
+        Clazz.objects.create(year='2023', major='计算机', clazz='1')
         User.objects.create(username='user0', password = '6543210')
         Student.objects.create(name='张三', user=User.objects.get(id=1), gender='m', clazz=Clazz.objects.get(id=1))
 

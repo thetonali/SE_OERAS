@@ -12,6 +12,4 @@ describe('<Answer/>', () => {
 		expect(result).toMatchSnapshot()
 		wrapper2.destroy()
     })
-
-	
   });

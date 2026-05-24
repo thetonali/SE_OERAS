@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1688226207285" clover="3.2.0">
-  <project timestamp="1688226207287" name="All files">
+<coverage generated="1779618080734" clover="3.2.0">
+  <project timestamp="1779618080735" name="All files">
     <metrics statements="150" coveredstatements="120" conditionals="27" coveredconditionals="5" methods="36" coveredmethods="16" elements="213" coveredelements="141" complexity="0" loc="150" ncloc="150" packages="6" files="19" classes="19"/>
-    <package name="exam-online-master-2">
+    <package name="exam-online">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="sum.js" path="/home/ubuntu/Downloads/exam-online-master-2/sum.js">
+      <file name="sum.js" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\sum.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="exam-online-master-2.src.components">
+    <package name="exam-online.src.components">
       <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-      <file name="HelloWorld.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/components/HelloWorld.vue">
+      <file name="HelloWorld.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\components\HelloWorld.vue">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="9" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
         <line num="40" count="1" type="stmt"/>
       </file>
-      <file name="Pagination.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/components/Pagination.vue">
+      <file name="Pagination.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\components\Pagination.vue">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="18" type="stmt"/>
         <line num="8" count="4" type="stmt"/>
         <line num="35" count="4" type="stmt"/>
       </file>
-      <file name="SlideVerification.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/components/SlideVerification.vue">
+      <file name="SlideVerification.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\components\SlideVerification.vue">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="15" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
         <line num="73" count="3" type="stmt"/>
       </file>
-      <file name="TimeCountDown.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/components/TimeCountDown.vue">
+      <file name="TimeCountDown.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\components\TimeCountDown.vue">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="12" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
         <line num="76" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="exam-online-master-2.src.layout">
+    <package name="exam-online.src.layout">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="index.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/layout/index.vue">
+      <file name="index.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\layout\index.vue">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="12" type="stmt"/>
         <line num="48" count="4" type="stmt"/>
         <line num="90" count="4" type="stmt"/>
       </file>
     </package>
-    <package name="exam-online-master-2.src.router">
+    <package name="exam-online.src.router">
       <metrics statements="26" coveredstatements="4" conditionals="10" coveredconditionals="0" methods="15" coveredmethods="0"/>
-      <file name="index.js" path="/home/ubuntu/Downloads/exam-online-master-2/src/router/index.js">
+      <file name="index.js" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\router\index.js">
         <metrics statements="26" coveredstatements="4" conditionals="10" coveredconditionals="0" methods="15" coveredmethods="0"/>
         <line num="5" count="4" type="stmt"/>
         <line num="7" count="4" type="stmt"/>
@@ -78,9 +78,9 @@
         <line num="148" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="exam-online-master-2.src.store">
+    <package name="exam-online.src.store">
       <metrics statements="9" coveredstatements="1" conditionals="8" coveredconditionals="4" methods="4" coveredmethods="0"/>
-      <file name="index.js" path="/home/ubuntu/Downloads/exam-online-master-2/src/store/index.js">
+      <file name="index.js" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\store\index.js">
         <metrics statements="9" coveredstatements="1" conditionals="8" coveredconditionals="4" methods="4" coveredmethods="0"/>
         <line num="4" count="6" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
@@ -93,9 +93,9 @@
         <line num="28" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="exam-online-master-2.src.views">
+    <package name="exam-online.src.views">
       <metrics statements="98" coveredstatements="98" conditionals="9" coveredconditionals="1" methods="11" coveredmethods="11"/>
-      <file name="Answer.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/views/Answer.vue">
+      <file name="Answer.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\views\Answer.vue">
         <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="9" type="cond" truecount="1" falsecount="1"/>
         <line num="144" count="1" type="stmt"/>
@@ -106,7 +106,7 @@
         <line num="151" count="1" type="stmt"/>
         <line num="489" count="1" type="stmt"/>
       </file>
-      <file name="Center.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/views/Center.vue">
+      <file name="Center.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\views\Center.vue">
         <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="9" type="stmt"/>
         <line num="40" count="1" type="stmt"/>
@@ -121,7 +121,7 @@
         <line num="53" count="1" type="stmt"/>
         <line num="164" count="1" type="stmt"/>
       </file>
-      <file name="Exam.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/views/Exam.vue">
+      <file name="Exam.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\views\Exam.vue">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="9" type="cond" truecount="0" falsecount="2"/>
         <line num="41" count="1" type="stmt"/>
@@ -134,7 +134,7 @@
         <line num="52" count="1" type="stmt"/>
         <line num="139" count="1" type="stmt"/>
       </file>
-      <file name="Grade.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/views/Grade.vue">
+      <file name="Grade.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\views\Grade.vue">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="19" type="cond" truecount="0" falsecount="2"/>
         <line num="51" count="1" type="stmt"/>
@@ -147,7 +147,7 @@
         <line num="62" count="1" type="stmt"/>
         <line num="124" count="1" type="stmt"/>
       </file>
-      <file name="Login.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/views/Login.vue">
+      <file name="Login.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\views\Login.vue">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="9" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
@@ -161,13 +161,13 @@
         <line num="47" count="1" type="stmt"/>
         <line num="114" count="1" type="stmt"/>
       </file>
-      <file name="Mistakes.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/views/Mistakes.vue">
+      <file name="Mistakes.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\views\Mistakes.vue">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="109" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="86" count="1" type="stmt"/>
       </file>
-      <file name="Password.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/views/Password.vue">
+      <file name="Password.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\views\Password.vue">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="9" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
@@ -180,14 +180,14 @@
         <line num="31" count="1" type="stmt"/>
         <line num="144" count="1" type="stmt"/>
       </file>
-      <file name="Payment.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/views/Payment.vue">
+      <file name="Payment.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\views\Payment.vue">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="9" type="cond" truecount="0" falsecount="1"/>
         <line num="16" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="49" count="1" type="stmt"/>
       </file>
-      <file name="Practice.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/views/Practice.vue">
+      <file name="Practice.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\views\Practice.vue">
         <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="13" type="stmt"/>
         <line num="51" count="1" type="stmt"/>
@@ -203,7 +203,7 @@
         <line num="66" count="1" type="stmt"/>
         <line num="153" count="1" type="stmt"/>
       </file>
-      <file name="Record.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/views/Record.vue">
+      <file name="Record.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\views\Record.vue">
         <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="9" type="cond" truecount="0" falsecount="2"/>
         <line num="94" count="1" type="stmt"/>
@@ -214,7 +214,7 @@
         <line num="101" count="1" type="stmt"/>
         <line num="180" count="1" type="stmt"/>
       </file>
-      <file name="Register.vue" path="/home/ubuntu/Downloads/exam-online-master-2/src/views/Register.vue">
+      <file name="Register.vue" path="E:\Courses\26Spring\SE\HW4\SE_OERAS\OERAS-test\exam-online\src\views\Register.vue">
         <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="9" type="stmt"/>
         <line num="43" count="1" type="stmt"/>
