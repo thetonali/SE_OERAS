@@ -2,9 +2,6 @@ import { shallowMount } from '@vue/test-utils';
 import Answer from './Answer';
 
 
-
-
-
 describe('<Answer/>', () => {
 	const wrapper = shallowMount(Answer);
 
@@ -18,13 +15,3 @@ describe('<Answer/>', () => {
 
 	
   });
-
-  /*
-  it("slide correctly", () => {
-		// 滑动 slide
-		wrapper.find('slide-verification').trigger('check-result');
-	  });
-  		// 可以立即获取 msg 最新的值，不再需要 wrapper.vm.$nextTick();
-		expect(wrapper.find('h1').text())
-		  .toEqual('new message');
-		  */
