@@ -29,7 +29,6 @@ class ExamListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     def get_queryset(self):
         student_id = self.request.query_params.get("student_id")
 
-        # ===== 核心修改：改为通用考试列表逻辑 =====
         # 如果考试没有限定班级（clazzs 为空），所有学生都能看到
         # 如果考试限定了班级，只有该班级学生能看到
         # 两类都显示给该学生
