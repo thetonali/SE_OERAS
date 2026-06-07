@@ -200,6 +200,28 @@
 			}
 		},
 		methods: {
+			checkExamWindow() {
+				if (this.isPractice == true) return true
+				const exam = this.getExam
+				if (!exam.id || !exam.exam_date) return false
+				const startTime = (exam.start_time || '09:00').substring(0, 5)
+				const start = new Date(`${exam.exam_date}T${startTime}:00`).getTime()
+				const entryClose = start + 30 * 60 * 1000
+				let close = start + (exam.total_time || 0) * 60 * 1000
+				if (exam.end_time) {
+					const endTime = exam.end_time.substring(0, 5)
+					const end = new Date(`${exam.exam_date}T${endTime}:00`).getTime()
+					close = end <= start ? end + 24 * 60 * 60 * 1000 : end
+				}
+				const now = Date.now()
+				const entryGranted = sessionStorage.getItem('examEntryGranted') === `${exam.id}`
+				if (now < start || now > close || (now > entryClose && !entryGranted)) {
+					this.$message.warning('考试入口仅在考试开始后 30 分钟内开放')
+					this.$router.push('/exam')
+					return false
+				}
+				return true
+			},
 			// 获取班级信息
 			getClazzInfo() {
 				this.$axios(`/api/clazzs/${this.getStudent.clazz}/?format=json`).then(res => {
@@ -453,6 +475,7 @@
 			}
 		},
 		created() {
+			if (!this.checkExamWindow()) return
 			this.getClazzInfo();
 			this.getChoiceInfo();
 			this.getFillInfo();

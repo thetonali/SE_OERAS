@@ -13,7 +13,7 @@
 				<template slot-scope="scope">
 					<el-popover trigger="hover" placement="top">
 						<p>考试名称: {{ scope.row.exam.name }}</p>
-						<p>考试日期: {{ scope.row.exam.exam_date }}</p>
+						<p>考试时间: {{ displayExamWindow(scope.row.exam) }}</p>
 						<p>考试时长: {{ scope.row.exam.total_time }}</p>
 						<p>所属专业: {{ scope.row.exam.major }}</p>
 						<p>考试须知: {{ scope.row.exam.tips }}</p>
@@ -32,7 +32,7 @@
 			<el-table-column prop="exam.exam_date" label="考试时间" width="180" sortable>
 				<template slot-scope="scope">
 					<i class="el-icon-time"></i>
-					<span style="margin-left: 10px">{{ scope.row.exam.exam_date }}</span>
+					<span style="margin-left: 10px">{{ displayExamWindow(scope.row.exam) }}</span>
 				</template>
 			</el-table-column>
 			<el-table-column prop="score" label="筛选" width="200" :filters="[{ text: '及格', value: 'pass' }, { text: '不及格', value: 'fail' }]"
@@ -96,6 +96,12 @@
 				} else {
 					return row.score > 0
 				}
+			},
+			displayExamWindow(exam) {
+				if (!exam) return ''
+				const start = (exam.start_time || '09:00').substring(0, 5)
+				const end = (exam.end_time || '11:00').substring(0, 5)
+				return `${exam.exam_date} ${start} - ${end}`
 			},
 			//改变每页条数
 			handleSizeChange(val) {

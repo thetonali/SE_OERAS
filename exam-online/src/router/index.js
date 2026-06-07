@@ -63,6 +63,14 @@ const routes = [{
 				meta: {
 					title: '考试得分'
 				}
+			},
+			{
+				path: 'admit-card',
+				name: 'AdmitCard',
+				component: () => import('../views/AdmitCard.vue'),
+				meta: {
+					title: '准考证'
+				}
 			}
 		]
 	},
@@ -96,14 +104,6 @@ const routes = [{
 		component: () => import('../views/Register.vue'),
 		meta: {
 			title: '注册界面'
-		}
-	},
-	{
-		path: '/Pay',
-		name: 'Pay',
-		component: () => import('../views/Pay.vue'),
-		meta: {
-			title: '支付'
 		}
 	},
 	{

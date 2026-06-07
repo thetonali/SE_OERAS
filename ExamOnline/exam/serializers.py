@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from exam.models import Exam, Paper, Grade, Practice,Subjective
+from exam.models import Exam, Paper, Grade, Practice, Subjective, ExamRegistration
 from user.models import Student
 from user.serializers import StudentSerializer
 
@@ -60,3 +60,14 @@ class SubjectiveSerializer(serializers.ModelSerializer):
         model = Subjective
         fields = '__all__'
         queryset = Subjective.objects.exclude(score=None)  # 添加 queryset 属性进行过滤
+
+
+class ExamRegistrationSerializer(serializers.ModelSerializer):
+    exam = ExamSerializer(read_only=True)
+    student = StudentSerializer(read_only=True)
+    exam_id = serializers.PrimaryKeyRelatedField(queryset=Exam.objects.all(), source='exam', write_only=True)
+    student_id = serializers.PrimaryKeyRelatedField(queryset=Student.objects.all(), source='student', write_only=True)
+
+    class Meta:
+        model = ExamRegistration
+        fields = '__all__'

@@ -1,12 +1,13 @@
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
+from django.db.utils import OperationalError
 from django.db.models import Q
 from rest_framework import viewsets, mixins, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from user.models import Student, Clazz, Teacher
+from user.models import Student, Clazz, Teacher, StudentProfile
 from user.serializers import StudentSerializer, UserDetailSerializer, ClazzSerializer
 
 
@@ -113,6 +114,20 @@ class StudentViewSet(viewsets.ModelViewSet):
     """学生信息"""
     queryset = Student.objects.all().order_by('id')
     serializer_class = StudentSerializer
+
+    def update(self, request, *args, **kwargs):
+        avatar = request.data.get('avatar')
+        response = super().update(request, *args, **kwargs)
+        if response.status_code == status.HTTP_200_OK and avatar is not None:
+            try:
+                StudentProfile.objects.update_or_create(
+                    student=self.get_object(),
+                    defaults={'avatar': avatar}
+                )
+                response.data['avatar'] = avatar
+            except OperationalError:
+                response.data['avatar_error'] = '学生扩展资料表尚未创建，请先执行 python manage.py migrate'
+        return response
 
 
 class ClazzListViewSet(viewsets.ModelViewSet):

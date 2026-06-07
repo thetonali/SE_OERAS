@@ -120,15 +120,23 @@ class UploadSubjective(APIView):
     def post(self, request):
         data = request.data
 
-        SubjectiveAnswer.objects.create(
+        try:
+            question = Subjective.objects.get(id=data.get("question_id"))
+        except Subjective.DoesNotExist:
+            return Response({"message": "question not found"}, status=404)
+
+        subjective_answer = SubjectiveAnswer.objects.create(
             student_id=data.get("student_id"),
             question_id=data.get("question_id"),
-            answer=data.get("answer"),
+            answer=data.get("answer") or "",
             exam_id=data.get("exam_id"),
             identifier=data.get("identifier"),
         )
 
-        return Response({"message": "success"})
+        return Response({
+            "message": "success",
+            "answer_id": subjective_answer.id,
+        })
 
 
 # =========================

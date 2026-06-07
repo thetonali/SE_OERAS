@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.db.utils import OperationalError
 from rest_framework import serializers
 
 from user.models import Student, Clazz
@@ -23,6 +24,13 @@ class StudentSerializer(serializers.ModelSerializer):
 
     # 用于创建的只写字段
     clazz_id = serializers.PrimaryKeyRelatedField(queryset=Clazz.objects.all(), source='clazz', write_only=True)
+    avatar = serializers.SerializerMethodField()
+
+    def get_avatar(self, obj):
+        try:
+            return obj.profile.avatar
+        except (AttributeError, OperationalError):
+            return ""
 
     class Meta:
         model = Student
