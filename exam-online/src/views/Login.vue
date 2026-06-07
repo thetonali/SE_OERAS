@@ -130,6 +130,9 @@ export default {
               this.$store.commit("setUser", res.data.user);
               this.$store.commit("setStudent", res.data.student);
               this.$store.commit("setAuthorization", res.data.token);
+              if (res.data.student && res.data.student.avatar) {
+                localStorage.setItem("studentAvatar", res.data.student.avatar);
+              }
 
               this.$router.push("/exam");
             }

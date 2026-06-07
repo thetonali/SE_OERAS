@@ -41,6 +41,21 @@ class Student(models.Model):
         return self.name
 
 
+class StudentProfile(models.Model):
+    """学生扩展资料"""
+    student = models.OneToOneField(Student, verbose_name="学生", on_delete=models.CASCADE, related_name="profile")
+    avatar = models.CharField("头像地址", max_length=255, default="", blank=True)
+    update_time = models.DateTimeField("更新时间", auto_now=True)
+
+    class Meta:
+        ordering = ['id']
+        verbose_name = '学生扩展资料'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return f'{self.student} 扩展资料'
+
+
 class Teacher(models.Model):
     "教师模型类"
     GENDER_CHOICES = (

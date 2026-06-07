@@ -19,7 +19,8 @@ from rest_framework.documentation import include_docs_urls
 from rest_framework.routers import DefaultRouter
 from rest_framework_jwt.views import obtain_jwt_token
 
-from exam.views import GradeListViewSet, ExamListViewSet, PracticeListViewSet
+from exam.views import GradeListViewSet, ExamListViewSet, PracticeListViewSet, AIScoreAPIView, \
+    ExamRegistrationViewSet, review_tasks_view, review_task_detail_view, review_task_ai_suggestion_view
 from question.views import ChoiceListViewSet, FillListViewSet, JudgeListViewSet, SubjectiveListViewSet, UploadSubjective
 from record.views import ChoiceRecordListViewSet, FillRecordListViewSet, JudgeRecordListViewSet, \
     SubjectiveRecordListViewSet
@@ -39,6 +40,7 @@ router.register(r'register', RegisterViewSet)
 router.register(r'clazzs', ClazzListViewSet)
 router.register(r'students', StudentViewSet)
 router.register(r'practices', PracticeListViewSet)
+router.register(r'registrations', ExamRegistrationViewSet)
 router.register(r'records/choices', ChoiceRecordListViewSet)
 router.register(r'records/fills', FillRecordListViewSet)
 router.register(r'records/judges', JudgeRecordListViewSet)
@@ -47,6 +49,10 @@ router.register(r'records/subjective', SubjectiveRecordListViewSet)
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
     path('api/paper/generate/', GeneratePaperAPIView.as_view()),
+    path('api/ai-score/', AIScoreAPIView.as_view()),
+    path('review/tasks/', review_tasks_view),
+    path('review/tasks/<int:pk>/', review_task_detail_view),
+    path('api/review/tasks/<int:pk>/ai-suggestion/', review_task_ai_suggestion_view),
     path('docs/', include_docs_urls('Python在线考试系统')),
     path('api-auth/', include('rest_framework.urls')),
     path('jwt-auth/', obtain_jwt_token),
