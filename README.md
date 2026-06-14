@@ -691,9 +691,9 @@ python manage.py dumpdata > data.json
 python manage.py loaddata data.json
 ```
 
-## 四、提交文件建议
+## 四、提交文件
 
-本次作业提交时，建议将以下内容与源码一起打包：
+本次作业提交时，将以下内容与源码一起打包：
 
 ```text
 SE_OERAS
