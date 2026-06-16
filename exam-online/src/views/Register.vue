@@ -139,8 +139,7 @@
 	.brand-panel {
 		flex: 1;
 		background:
-			linear-gradient(135deg, rgba(26, 58, 110, 0.94), rgba(37, 99, 235, 0.82)),
-			url("../assets/bg.jpg") center/cover no-repeat;
+			linear-gradient(135deg, rgba(26, 58, 110, 0.94), rgba(37, 99, 235, 0.82));
 		color: #ffffff;
 		display: flex;
 		align-items: center;
